@@ -1,0 +1,27 @@
+{
+  "name": "1024-commit-tower",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "1024 Commit 塔 —— 把你的 GitHub 提交史盖成一座 1024 层的代码塔",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "data": "node --use-system-ca scripts/fetch-tower-data.mjs account runningwaterpro 1024"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true
+  }
+}

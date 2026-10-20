@@ -1,0 +1,130 @@
+/* BASELINE 样式 —— 朴素版。蓝图视觉系统见 TRAE-BUILD-SPEC.md 第 4 节，由 TRAE 实现。 */
+
+:root {
+  --bg-deep: #08192b;
+  --bg-panel: #0c2338;
+  --ink: #cfe6ff;
+  --ink-dim: #7fa8cc;
+  --line: #7fc4ff;
+  --accent: #ffc24b;
+  --font-mono: "JetBrains Mono", "Cascadia Mono", ui-monospace, monospace;
+  --font-cn: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; margin: 0; }
+
+body {
+  background: var(--bg-deep);
+  color: var(--ink);
+  font-family: var(--font-cn);
+}
+
+.boot {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  font-family: var(--font-mono);
+  color: var(--ink-dim);
+}
+
+.app { display: flex; flex-direction: column; height: 100%; }
+
+.top {
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(127, 196, 255, 0.16);
+  font-family: var(--font-mono);
+}
+.top h1 { margin: 0; font-size: 18px; letter-spacing: 2px; color: var(--line); }
+.top .sub { margin-top: 4px; font-size: 12px; color: var(--ink-dim); }
+
+.body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 300px 1fr 340px;
+  min-height: 0;
+}
+
+.left, .right {
+  padding: 16px;
+  overflow: auto;
+  background: var(--bg-panel);
+  font-size: 13px;
+}
+.left { border-right: 1px solid rgba(127, 196, 255, 0.16); }
+.right { border-left: 1px solid rgba(127, 196, 255, 0.16); }
+
+.left h2, .right h2 {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--line);
+  font-family: var(--font-mono);
+}
+
+.left dl, .right dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.left dt, .right dt { color: var(--ink-dim); }
+.left dd, .right dd { margin: 0; }
+
+.punch {
+  margin: 12px 0 20px;
+  padding: 10px;
+  border-left: 2px solid var(--accent);
+  background: rgba(255, 194, 75, 0.06);
+  font-size: 13px;
+}
+
+.legend { list-style: none; margin: 0; padding: 0; font-family: var(--font-mono); font-size: 12px; }
+.legend li { display: flex; align-items: center; gap: 8px; padding: 2px 0; }
+.legend b { margin-left: auto; color: var(--ink); }
+.dot { width: 10px; height: 10px; display: inline-block; }
+
+.tower {
+  overflow-y: auto;
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  background-image:
+    linear-gradient(rgba(127, 196, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(127, 196, 255, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.layer {
+  flex: none;
+  border-radius: 1px;
+  cursor: pointer;
+  min-height: 2px;
+}
+.layer.ghost { opacity: 0.22; }
+.layer.sel { outline: 2px solid #fff; outline-offset: -2px; }
+
+.right .msg { font-size: 13px; line-height: 1.5; margin: 0 0 12px; }
+.right a { color: var(--line); }
+.hint { color: var(--ink-dim); font-size: 13px; }
+
+.titleblock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 8px 20px;
+  border-top: 1px solid rgba(127, 196, 255, 0.16);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-dim);
+}
+
+@media (max-width: 900px) {
+  .body { grid-template-columns: 1fr; grid-template-rows: auto 1fr auto; }
+  .left, .right { max-height: 40vh; }
+}
