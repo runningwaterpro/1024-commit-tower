@@ -341,10 +341,12 @@ interface Layer {
 
 | 按钮 | 数据 | 亮点 |
 |---|---|---|
-| runningwaterpro（账号塔） | 287 层 | 默认，观点所在 |
-| runningwaterpro/PyWxDump（仓库塔） | 1024 层 | **满塔**，看 1024 层长什么样 |
-| runningwaterpro/opencode-traffic-light | 28 层 | 纯原创，100% 是自己的 |
-| runningwaterpro/Voice_VibeCoding | 238 层 | 205 层是自己写的（86%） |
+| runningwaterpro（账号塔） | 287 层，全亮 | 默认。观点所在：主塔 = 你的 287 层，影子柱 = 继承的 33,683 层 |
+| runningwaterpro/Voice_VibeCoding（仓库塔） | 238 层（205 亮 + 33 暗） | **层内亮暗混排**，看得出哪几层是上游的 |
+| runningwaterpro/PyWxDump（仓库塔） | 1024 层，全暗 | **满塔**，看 1024 层长什么样 |
+| runningwaterpro/opencode-traffic-light（仓库塔） | 28 层，全亮 | 纯原创，100% 是自己的 |
+
+> 影子柱高度取 `meta.totalCommitsAllRepos ?? meta.totalCommits ?? 0`——账号塔用前者，仓库塔用后者。
 
 ---
 
